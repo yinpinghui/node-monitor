@@ -1,0 +1,16 @@
+{
+  "name": "boxiao-node-monitor",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+  	
+  	"node-static" : "*",
+  	
+  	"underscore" : "*",
+    "express": "*",
+    "socket.io": "*"
+  }
+}
