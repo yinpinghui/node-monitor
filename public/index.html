@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+  Product:        Social - Premium Responsive Admin Template
+  Version:        v1.3.1
+  Copyright:      2013 CesarLab.com
+  License:        http://themeforest.net/licenses
+  Live Preview:   http://go.cesarlab.com/SocialAdminTemplate
+  Purchase:       http://go.cesarlab.com/PurchaseSocial
+-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <title>Full Width Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <script>
+  	window.staticFileServer = 'http://127.0.0.1:8082';
+	window.jsRoot = staticFileServer + "/js/";
+	window.imgRoot = staticFileServer + "/img/";
+	window.contextBase = window.location.pathname.split("/")[1] + "/";
+	window.loadCss=function(urls) {
+		var head = document.getElementsByTagName("head")[0];
+		for (var i = 0 ; i < urls.length; i++){
+			var link = document.createElement("link");
+		    link.type = "text/css";
+		    link.rel = "stylesheet";
+		    link.href = window.staticFileServer + urls[i];
+		    head.appendChild(link);
+		}
+	}
+	loadCss([
+		"/css/twitter-bootstrap/bootstrap.css?v1.3.1",
+		"/css/social.css?v1.3.1",
+		"/css/social-jquery-ui-1.10.0.custom.css?v1.3.1",
+		"/css/social.plugins.css?v1.3.1",
+		"/css/font-awesome.css?v1.3.1",
+		"/css/themes/social.theme-blue.css?v1.3.1",
+		"/css/twitter-bootstrap/bootstrap-responsive.css?v1.3.1",
+		"/js/lib/jquery/jquery.uipro/style.css?v1.3.1",
+		"/js/lib/jquery/jquery.uniform/themes/default/css/uniform.default.min.css?v1.3.1",
+		"/js/lib/jquery/bootstrap.wysihtml5/bootstrap-wysihtml5.css",
+		"/js/lib/jquery/jquery.file-upload/css/jquery.fileupload-ui.css"
+		
+	])
+  </script>
+  <style>
+  .wraper #main{
+    margin-top: 40px;
+  }
+  #main {
+    margin-left: 0;
+  }
+  .social-navbar {
+    left: 0;
+  }
+  </style>
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="/templates/socia/templates/social/assets/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Support for responsive desing in IE8 -->
+  <!--[if lte IE 8]>
+      <script src="/templates/social/assets/plugins/respond/respond.min.js"></script>
+      <![endif]-->
+
+    </head>
+    <body>
+    <!-- We add the sidebar-full class to the wrapper
+    This is necessary for padding on left the navbar and
+    the bady content -->
+    <div class="wraper">
+      <header>
+        <nav class="navbar navbar-blue navbar-fixed-top social-navbar">
+         <div class="navbar-inner">
+           <div class="container-fluid">
+             <a class="brand" href="#">
+              Title</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div id="main">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span12">
+              <h3 class="page-title">
+                Full Width Page
+              </h3>
+              <ul class="breadcrumb">
+                <li>
+                  <i class="icon-home"></i>
+                  <a href="#">Home</a>
+                  <span class="icon-angle-right"></span>
+                </li>
+                <li><a href="#">Element 1</a>
+                  <span class="icon-angle-right"></span>
+                </li>
+                <li><a href="#">Element 2</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <!-- Content page here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Le javascript -->
+    <script data-main="js/main" src="js/lib/require.js"></script>
+  </body>
+
+  </html>

@@ -8,7 +8,7 @@
   "dependencies": {
   	
   	"node-static" : "*",
-  	
+  	"express.io" : "*",
   	"underscore" : "*",
     "express": "*",
     "socket.io": "*"

@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 
-var express = require('express'), 
+var express = require('express.io'), 
 routes = require('./routes'), 
 http = require('http'), 
 path = require('path');
@@ -22,15 +22,12 @@ app.use(express.bodyParser({
 }));
 app.use(express.limit('500mb'));
 app.use(express.methodOverride());
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 // development only
 if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
-
-app.get('/', routes.index);
 
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
