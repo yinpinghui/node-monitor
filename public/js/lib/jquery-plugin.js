@@ -1,4 +1,5 @@
 define(['jquery',
+/*
 	window.jsRoot + 'lib/jquery/jquery-ui.min.js',
 	window.jsRoot + 'lib/jquery/jquery.ui.touch-punch/jquery.ui.touch-punch.js',
 	window.jsRoot + 'lib/jquery/jquery.slimscroll/jquery.slimscroll.min.js',

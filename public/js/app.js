@@ -1,5 +1,5 @@
-define(['router/app-router', 'underscore', 'jquery','bootstrap','json2','jquery-plugin']
-        , function(AppRouter, _, $, _bootstrap){
+define(['router/app-router', 'underscore', 'jquery','bootstrap','view/menu-navbar-view','json2','jquery-plugin']
+        , function(AppRouter, _, $, _bootstrap,MenuView){
     
     // Send to the server all warn or error logs
     console.level = 'warn';
@@ -66,7 +66,7 @@ define(['router/app-router', 'underscore', 'jquery','bootstrap','json2','jquery-
 	  });
 
 
-	  
+	  new MenuView({root: $('#menuContainer')});
 	  
       /**
        * 全局的错误提示样式函数
