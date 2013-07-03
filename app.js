@@ -8,14 +8,29 @@ http = require('http'),
 path = require('path');
 
 var app = express();
+var winston = require("winston");
 
+var logger = new (winston.Logger)({
+    transports: [
+      
+      new (winston.transports.File)({ filename: __dirname +  '/log/app.log' }),
+      new (winston.transports.Webhook)({
+           host: '127.0.0.1',
+           port: 3001,
+           path: '/' 
+       }) 
+    ],
+     exceptionHandlers: [
+      new winston.transports.File({ filename: __dirname + '/log/exceptions.log' })
+    ]
+});
 // all environments
-
+app.set("logger",logger);
 app.set('port', process.env.PORT || 3001);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
-app.use(express.logger('dev'));
+//app.use(express.logger('dev'));
 app.use(express.bodyParser({
 	uploadDir: __dirname + '/public/tmp',
     keepExtensions: true
@@ -30,5 +45,5 @@ if ('development' == app.get('env')) {
 }
 
 http.createServer(app).listen(app.get('port'), function() {
-	console.log('Express server listening on port ' + app.get('port'));
+	logger.log('Express server listening on port ' + app.get('port'));
 });

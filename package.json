@@ -11,6 +11,8 @@
   	"express.io" : "*",
   	"underscore" : "*",
     "express": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "sqlite3":"*",
+    "winston" : "*"
   }
 }
