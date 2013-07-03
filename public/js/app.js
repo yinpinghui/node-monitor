@@ -1,5 +1,5 @@
-define(['router/app-router', 'underscore', 'jquery','bootstrap','view/menu-navbar-view','json2','jquery-plugin']
-        , function(AppRouter, _, $, _bootstrap, MenuView){
+define(['router/app-router', 'underscore', 'jquery','bootstrap','json2','jquery-plugin']
+        , function(AppRouter, _, $, _bootstrap){
     
     // Send to the server all warn or error logs
     console.level = 'warn';
@@ -65,14 +65,7 @@ define(['router/app-router', 'underscore', 'jquery','bootstrap','view/menu-navba
     	  ajaxcounter--;
 	  });
 
-       /**
-	   *画左侧菜单栏模板
-	   *  **/
-	  new MenuView({root: $('#menuContainer')});
-	  require([window.jsRoot + 'view/fileupload-view.js'],function(UploadView){
-	  	var uploadview = new UploadView();
-	  	$('#bodyContainer').append(uploadview.el);
-	  });
+
 	  
 	  
       /**
@@ -97,17 +90,8 @@ define(['router/app-router', 'underscore', 'jquery','bootstrap','view/menu-navba
     	  $.pnotify(_.extend(defaultInfo, opts));
     	  
       };
-      $(window).resize( function(){
-      	$("a.brand span").text("w:" + $(window).width() + " ; h:" + $(window).height() )
-      });
+      
     })
-
-    // window.currentUser = new User();
-    // $.when(window.currentUser.fetch()).then(function() {
-    	// $("#currentUserLoginInfo").html("欢迎您: " + window.currentUser.get('fullname'));
-        // window.approuter=new AppRouter();
-        // Backbone.history.start({pushState: true, root:'/inq'});
-    // });
     window.approuter=new AppRouter();
     Backbone.history.start({pushState: true, root:'/'});
     

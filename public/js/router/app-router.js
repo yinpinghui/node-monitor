@@ -1,5 +1,5 @@
-define([ 'backbone','view/home-view','view/books-view','view/users-view','view/mail-base-view','view/notice-index-view','backbone-queryparams'], function(
-		Backbone, HomeView, BooksView, UsersView, MailBaseView,NoticeIndexView) {
+define([ 'backbone','backbone-queryparams'], function(
+		Backbone) {
 	var options = {
 		routes : {
 			'' : 'homePage',
@@ -30,24 +30,8 @@ define([ 'backbone','view/home-view','view/books-view','view/users-view','view/m
 		search:function(query,page){
 			
 		},
-		homePage : function(){
-			console.log("into home page");
-			new HomeView({root: $('#bodyContainer')});
-		},
-		userlist : function(params) {
-			new UsersView({root : $('#bodyContainer')});
-		},
-		booklist : function(params) {
-			new BooksView({root : $('#bodyContainer')});
-		},
+
 		
-		mailbox: function(){
-			new MailBaseView({root : $('#bodyContainer')});
-		},
-		notice : function() {
-				console.log("into notice page");
-			new NoticeIndexView({root : $('#bodyContainer')});
-		},
 	};
 
 	var AppRouter = Backbone.Router.extend(options);
