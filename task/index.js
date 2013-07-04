@@ -1,7 +1,7 @@
 var loadtask = function(app) {
 	var db = app.get("sqlite");
 	db.serialize(function() {
-		db.run("CREATE TABLE IF NOT EXISTS lorem (info TEXT)");
+		db.run("CREATE TABLE IF NOT EXISTS task (info TEXT)");
 		db.run("CREATE TABLE IF NOT EXISTS lorem (info TEXT)");
 		db.run("CREATE TABLE IF NOT EXISTS lorem (info TEXT)");
 		db.run("CREATE TABLE IF NOT EXISTS lorem (info TEXT)");
