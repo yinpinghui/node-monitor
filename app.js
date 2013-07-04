@@ -6,19 +6,17 @@ var express = require('express.io'),
 routes = require('./routes'), 
 http = require('http'), 
 path = require('path');
+var sqlite3 = require("sqlite3").verbose();
 
+var db = new sqlite3.Database('monitor.db');
 var app = express();
 var winston = require("winston");
 
 var logger = new (winston.Logger)({
     transports: [
-      
+      new (winston.transports.Console)(),
       new (winston.transports.File)({ filename: __dirname +  '/log/app.log' }),
-      new (winston.transports.Webhook)({
-           host: '127.0.0.1',
-           port: 3001,
-           path: '/' 
-       }) 
+      new (winston.transports.Webhook)({ 'host': '127.0.0.1', 'port': 3001, 'path': '/*' })
     ],
      exceptionHandlers: [
       new winston.transports.File({ filename: __dirname + '/log/exceptions.log' })
@@ -45,5 +43,6 @@ if ('development' == app.get('env')) {
 }
 
 http.createServer(app).listen(app.get('port'), function() {
-	logger.log('Express server listening on port ' + app.get('port'));
+	//console.log(logger);
+	logger.info('Express server listening on port ' + app.get('port'));
 });

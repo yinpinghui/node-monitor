@@ -64,9 +64,6 @@ define(['router/app-router', 'underscore', 'jquery','bootstrap','view/menu-navba
       }).ajaxComplete(function() {
     	  ajaxcounter--;
 	  });
-
-
-	  new MenuView({root: $('#menuContainer')});
 	  
       /**
        * 全局的错误提示样式函数
