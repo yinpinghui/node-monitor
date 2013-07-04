@@ -7,8 +7,7 @@ routes = require('./routes'),
 http = require('http'), 
 path = require('path');
 var sqlite3 = require("sqlite3").verbose();
-
-var db = new sqlite3.Database('monitor.db');
+var db = new sqlite3.Database('db/monitor.db');
 var app = express();
 var winston = require("winston");
 
@@ -27,6 +26,7 @@ app.set("logger",logger);
 app.set('port', process.env.PORT || 3001);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+app.set("sqlite",db);
 app.use(express.favicon());
 //app.use(express.logger('dev'));
 app.use(express.bodyParser({
@@ -41,7 +41,7 @@ app.use(app.router);
 if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
-
+require("./task")(app);
 http.createServer(app).listen(app.get('port'), function() {
 	//console.log(logger);
 	logger.info('Express server listening on port ' + app.get('port'));
