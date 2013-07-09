@@ -11,7 +11,6 @@ Purchase:       http://go.cesarlab.com/PurchaseSocial
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 	<!--<![endif]-->
-
 	<head>
 		<meta charset="utf-8">
 		<title>monitor | boxiao</title>
@@ -25,14 +24,14 @@ window.jsRoot = staticFileServer + "/js/";
 window.imgRoot = staticFileServer + "/img/";
 window.contextBase = window.location.pathname.split("/")[1] + "/";
 window.loadCss=function(urls) {
-var head = document.getElementsByTagName("head")[0];
-for (var i = 0 ; i < urls.length; i++){
-var link = document.createElement("link");
-link.type = "text/css";
-link.rel = "stylesheet";
-link.href = window.staticFileServer + urls[i];
-head.appendChild(link);
-}
+	var head = document.getElementsByTagName("head")[0];
+	for (var i = 0 ; i < urls.length; i++){
+		var link = document.createElement("link");
+		link.type = "text/css";
+		link.rel = "stylesheet";
+		link.href = window.staticFileServer + urls[i];
+		head.appendChild(link);
+	}
 }
 loadCss([
 "/css/twitter-bootstrap/bootstrap.css?v1.3.1",
@@ -42,7 +41,8 @@ loadCss([
 "/css/font-awesome.css?v1.3.1",
 "/css/themes/social.theme-blue.css?v1.3.1",
 "/css/twitter-bootstrap/bootstrap-responsive.css?v1.3.1",
-
+//"/js/lib/jquery/datatables/media/css/jquery.dataTables.css?v1.3.1",
+"/js/lib/jquery/datatables/media/DT_bootstrap.css?v1.3.1"
 ])
 		</script>
 		<style>
@@ -101,8 +101,10 @@ loadCss([
 											</li>
 										</ul>
 									</li>
-									
-									
+									<li class="dropdown bxnavbar">
+										<a href="codegen.html" class="dropdown-toggle" data-toggle="dropdown">代码生成 <b class="caret"></b></a>
+										
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -111,7 +113,7 @@ loadCss([
 			</header>
 			<div id="main">
 				<div class="container-fluid">
-					<div class="row-fluid">
+					<div id="bodyContainer" class="row-fluid">
 						<!-- Content page here -->
 
 					</div>

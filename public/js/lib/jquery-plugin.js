@@ -1,5 +1,4 @@
 define(['jquery',
-/*
 	window.jsRoot + 'lib/jquery/jquery-ui.min.js',
 	window.jsRoot + 'lib/jquery/jquery.ui.touch-punch/jquery.ui.touch-punch.js',
 	window.jsRoot + 'lib/jquery/jquery.slimscroll/jquery.slimscroll.min.js',
@@ -15,13 +14,13 @@ define(['jquery',
 	window.jsRoot + 'lib/jquery/jquery.grab-bag/jquery.autogrow-textarea.js',
 	window.jsRoot + 'lib/jquery/bootstrap.fileupload/bootstrap-fileupload.min.js',
 	window.jsRoot + 'lib/jquery/jquery.textarea/jquery.textareaCounter.plugin.js',
-	window.jsRoot + 'lib/jquery/uniform/jquery.uniform.js',
-	window.jsRoot + 'lib/jquery/select2/select2.js',
+	window.jsRoot + 'lib/jquery/jquery.uniform/jquery.uniform.min.js',
+	//window.jsRoot + 'lib/jquery/select2/select2.js',
 	window.jsRoot + 'lib/jquery/jquery.nestable/jquery.nestable.js',
-	
-	
-	window.jsRoot + 'lib/jquery/jquery.upload/jquery.iframe-transport.js',
+	window.jsRoot + 'lib/jquery/jquery.file-upload/js/jquery.iframe-transport.js',
 	window.jsRoot + 'lib/jquery/jquery.file-upload/js/jquery.fileupload.js',
+	window.jsRoot + 'lib/jquery/datatables/media/js/jquery.dataTables.min.js',
+	
 	/*
 	window.jsRoot + 'lib/jquery/jquery.upload/jquery.fileupload-process.js',
 	window.jsRoot + 'lib/jquery/jquery.upload/jquery.fileupload-image.js',
@@ -51,6 +50,7 @@ define(['jquery',
 	
 	], function ($) {
     //Plugin code goes here.
-    window.$ = $; 
-    return $;
+    require([window.jsRoot + 'lib/jquery/datatables/media/js/DT_bootstrap.js'],function(){
+    	return $
+    })
 });

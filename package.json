@@ -13,6 +13,7 @@
     "express": "*",
     "socket.io": "*",
     "sqlite3":"*",
-    "winston" : "*"
+    "winston" : "*",
+    "cron" : "*"
   }
 }
