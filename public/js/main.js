@@ -105,7 +105,7 @@ require.config({
 });
 
 // Load our app module and pass it to our definition function
-require(['console'],function(){
+require(['console','jquery-plugin'],function(){
 	if (/^()\/login.*/.test(location.pathname)){
 		require(['login']);	
 	}else{

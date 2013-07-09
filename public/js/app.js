@@ -64,6 +64,8 @@ define(['router/app-router', 'underscore', 'jquery','bootstrap','view/menu-navba
       }).ajaxComplete(function() {
     	  ajaxcounter--;
 	  });
+	  //require([window.jsRoot + 'lib/jquery/datatables/media/js/DT_bootstrap.js']);
+	 
 	  
       /**
        * 全局的错误提示样式函数
@@ -87,9 +89,10 @@ define(['router/app-router', 'underscore', 'jquery','bootstrap','view/menu-navba
     	  $.pnotify(_.extend(defaultInfo, opts));
     	  
       };
+      require([window.jsRoot + 'lib/jquery/datatables/media/js/DT_bootstrap.js'])
+      window.approuter=new AppRouter();
+      Backbone.history.start({pushState: true, root:'/'});
       
     })
-    window.approuter=new AppRouter();
-    Backbone.history.start({pushState: true, root:'/'});
     
 });
