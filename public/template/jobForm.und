@@ -1,0 +1,100 @@
+<div class="social-box">
+	<div class="header">
+		<% if(type == "add"){ %>
+		<h4>添加job</h4>
+		<% }else if(type == "edit"){ %>
+		<h4>编辑job</h4>
+		<% }else if(type == "show"){ %>
+		<h4>查看job</h4>
+		<% } %>
+	</div>
+	<div class="body">
+		<% if(type == "show"){ %>
+		<table class="table table-bordered table-condensed">
+			<tbody>
+				<tr>
+					<td>名称</td>
+					<td><%= model.name %></td>
+				</tr>
+				<tr>
+					<td>开始命令</td>
+					<td><%= model.startcmd %></td>
+				</tr>
+				<tr>
+					<td>结束命令</td>
+					<td><%= model.stopcmd %></td>
+				</tr>
+				<tr>
+					<td>备注</td>
+					<td><%= model.desc %></td>
+				</tr>
+				<tr>
+					<td>类型</td>
+					<td><%= model.type %></td>
+				</tr>
+				<tr>
+					<td>状态</td>
+					<td><%= model.status %></td>
+				</tr>
+				<tr>
+					<td>间隔时间</td>
+					<td><%= model.crontime %></td>
+				</tr>
+			</tbody>
+		</table>
+		<% }else{ %>
+		<form action="#" class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label">名称</label>
+				<div class="controls">
+					<input type="text" name="name" class="grd-white" value="<%= model.name %>"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">开始命令</label>
+				<div class="controls">
+					<input type="text" name="startcmd" class="grd-white" value="<%= model.startcmd %>"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">结束命令</label>
+				<div class="controls">
+					<input type="text" name="stopcmd" class="grd-white" value="<%= model.stopcmd %>"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">备注</label>
+				<div class="controls">
+					<input type="text" name="desc" class="grd-white" value="<%= model.desc %>"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">类型</label>
+				<div class="controls">
+					<input type="text" name="type" class="grd-white" value="<%= model.type %>"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">状态</label>
+				<div class="controls">
+					<input type="text" name="status" class="grd-white" value="<%= model.status %>"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">间隔时间</label>
+				<div class="controls">
+					<input type="text" name="crontime" class="grd-white" value="<%= model.crontime %>"/>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="button" class="btn btn-primary save">
+					确定
+				</button>
+				<button type="button" class="btn btn-danger">
+					取消
+				</button>
+			</div>
+		</form>
+		<% } %>
+	</div>
+</div>

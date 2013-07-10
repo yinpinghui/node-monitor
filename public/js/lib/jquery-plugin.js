@@ -21,6 +21,8 @@ define(['jquery',
 	window.jsRoot + 'lib/jquery/jquery.file-upload/js/jquery.fileupload.js',
 	window.jsRoot + 'lib/jquery/datatables/media/js/jquery.dataTables.min.js',
 	
+	'/js/lib/jquery/bootstrap.paginator/bootstrap-paginator.min.js'
+	
 	/*
 	window.jsRoot + 'lib/jquery/jquery.upload/jquery.fileupload-process.js',
 	window.jsRoot + 'lib/jquery/jquery.upload/jquery.fileupload-image.js',
@@ -50,7 +52,7 @@ define(['jquery',
 	
 	], function ($) {
     //Plugin code goes here.
-    require([window.jsRoot + 'lib/jquery/datatables/media/js/DT_bootstrap.js'],function(){
+    require([window.jsRoot + 'lib/jquery/datatables/DT_bootstrap.js'],function(){
     	return $
     })
 });

@@ -44,36 +44,36 @@ define(['jquery', 'underscore'], function ($, _) {
     var error = console.error;
     
     // console.log = console.debug
-    console.log = function () {
-        log.apply(this, Array.prototype.slice.call(arguments));
-        if(enabledFor('debug')) {
-            sendLogToServer('debug', arguments);
-        }
-    };
-    console.debug = function () {
-        debug.apply(this, Array.prototype.slice.call(arguments));
-        if(enabledFor('debug')) {
-            sendLogToServer('debug', arguments);
-        }
-    };
-    console.info = function () {
-        info.apply(this, Array.prototype.slice.call(arguments));
-        if(enabledFor('info')) {
-            sendLogToServer('info', arguments);
-        }
-    };
-    console.warn = function () {
-        warn.apply(this, Array.prototype.slice.call(arguments));
-        if(enabledFor('warn')) {
-            sendLogToServer('warn', arguments);
-        }
-    };
-    console.error = function () {
-        error.apply(this, Array.prototype.slice.call(arguments));
-        if(enabledFor('error')) {
-            sendLogToServer('error', arguments);
-        }
-    };
+    // console.log = function () {
+        // log.apply(this, Array.prototype.slice.call(arguments));
+        // if(enabledFor('debug')) {
+            // sendLogToServer('debug', arguments);
+        // }
+    // };
+    // console.debug = function () {
+        // debug.apply(this, Array.prototype.slice.call(arguments));
+        // if(enabledFor('debug')) {
+            // sendLogToServer('debug', arguments);
+        // }
+    // };
+    // console.info = function () {
+        // info.apply(this, Array.prototype.slice.call(arguments));
+        // if(enabledFor('info')) {
+            // sendLogToServer('info', arguments);
+        // }
+    // };
+    // console.warn = function () {
+        // warn.apply(this, Array.prototype.slice.call(arguments));
+        // if(enabledFor('warn')) {
+            // sendLogToServer('warn', arguments);
+        // }
+    // };
+    // console.error = function () {
+        // error.apply(this, Array.prototype.slice.call(arguments));
+        // if(enabledFor('error')) {
+            // sendLogToServer('error', arguments);
+        // }
+    // };
 
 
     var sendLogToServer = function(level, msg) {
