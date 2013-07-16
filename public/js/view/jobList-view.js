@@ -1,8 +1,11 @@
 define(['underscore', 'resthub', 'und!template/jobList'], 
 function(_, Resthub, template) {
 	var ListView = Resthub.View.extend({
+		
 		template : template,
-		datas : {},
+		
+		page : null,
+		
 		events : {
 			"click button.btn-delete" : "deleteItem"
 		},
@@ -11,6 +14,8 @@ function(_, Resthub, template) {
 			var _self = this;
 			var _url = (!!options.page)? "/api/jobs?page=" + options.page : "/api/jobs";
 			
+			_self.page = (!!options.page)? options.page : 1;
+
 			$.ajax({
 				url : _url
 			}).done(function(data){
@@ -20,29 +25,29 @@ function(_, Resthub, template) {
 
 		render : function(data) {
 			var _self = this;
-			
-			if(!!data.totalPages){
+			console.log(data);
+			if(!!data.totalPages && data.totalPages !== 0){
 				
 				//totalPages存在，有分页
 				_self.$el.html(_self.template({jobs:data.content}));
 			
 				_.defer(function() {
 					var options = {
-			            currentPage: data.currentPage,
+			            currentPage: _self.page,
 			            totalPages: data.totalPages,
 			            size: "small",
 			            alignment: "right",
 			            onPageClicked: function(e,originalEvent,type,page){
 			            	var _url = "jobs/page" + page;
-			            	window.approuter.navigate(_url, {trigger: true});
+			            	window.approuter.navigate(_url,{trigger:"true"});
 			            }
 			        }
 			        _self.$el.find('.pagination').bootstrapPaginator(options);
 			     });
 			}else{
-			
+				console.log(data);
 				//totalPages不存在，没有分页
-				_self.$el.html(_self.template({jobs:data}));
+				_self.$el.html(_self.template({jobs:data.content}));
 			}
 			
 			return _self;

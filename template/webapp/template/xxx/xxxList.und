@@ -1,0 +1,41 @@
+<div class="social-box">
+	<div class="header">
+		<div class="tools">
+			<a class="btn btn-success" href="/{{xxx}}/new"><i class="icon-pencil"></i> 添加</a>
+		</div>
+	</div>
+	<div class="body">
+		<div class="row-fluid">
+			<div class="span12">
+				<table class="table table-bordered table-condensed" id="{{xxx}}List">
+					<thead>
+						<tr>
+							{{#fields}}
+							<th>{{fieldZh}}</th>
+							{{/fields}}
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% _.each({{xxx}}s, function({{xxx}}){%>
+						<tr>
+							{{#fields}}
+							<td><%= {{xxx}}.{{fieldName}} %></td>
+							{{/fields}}
+							<td  data-{{xxx}}Id=<%= {{xxx}}.id %> >
+								<a href="/{{xxx}}/<%= {{xxx}}.id %>" class="btn btn-small">查看</a>
+								<a href="/{{xxx}}/<%= {{xxx}}.id %>/edit" class="btn btn-small">修改</a>
+								<button class="btn btn-small btn-delete">删除</button></td>
+						</tr>
+						<% }) %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="pagination"></div>
+			</div>
+		</div>
+	</div>
+</div>

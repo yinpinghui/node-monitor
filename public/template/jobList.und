@@ -1,7 +1,7 @@
 <div class="social-box">
 	<div class="header">
 		<div class="tools">
-			<a class="btn btn-success" data-bypass href="job/new"><i class="icon-pencil"></i> 添加</a>
+			<a class="btn btn-success" href="job/new"><i class="icon-pencil"></i> 添加</a>
 		</div>
 	</div>
 	<div class="body">
@@ -33,7 +33,7 @@
 							<td><%= job.status %></td>
 							<td><%= job.crontime %></td>
 							<td  data-jobId=<%= job.id %> >
-								<a data-bypass href="/job/<%= job.id %>/edit" class="btn btn-small btn-primary">修改</a>
+								<a href="/job/<%= job.id %>/edit" class="btn btn-small btn-primary">修改</a>
 								<button class="btn btn-small btn-delete">删除</button></td>
 						</tr>
 						<% }) %>

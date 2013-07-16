@@ -9,13 +9,14 @@ var router = function(app) {
 		getJobs : function(req,res){
 
 			if(req.query.page == "no"){
-				console.log("I don't wanna pagination!!");
+
 				res.json(
 					[{id:"1",name:"name1",startcmd:"",stopcmd:"",desc:"",type:"type",status:"",crontime:""},
 						{id:"2",name:"name2",startcmd:"",stopcmd:"",desc:"",type:"type",status:"",crontime:""},
 						{id:"3",name:"name3",startcmd:"",stopcmd:"",desc:"",type:"type",status:"",crontime:""},
 						{id:"4",name:"name4",startcmd:"",stopcmd:"",desc:"",type:"type",status:"",crontime:""}]);				
 			}else{
+
 				res.json({
 					content: [
 						{id:"1",name:"name1",startcmd:"",stopcmd:"",desc:"",type:"type",status:"",crontime:""},
@@ -31,7 +32,6 @@ var router = function(app) {
 						ascending : true
 						  } ],
 					firstPage : true,
-					currentPage : req.query.page,
 					totalPages : 5,
 					numberOfElements : 4,
 					totalElements : 44,
@@ -43,6 +43,7 @@ var router = function(app) {
 		
 		saveJob : function(req, res) {
 			 console.log(req.body);
+			 res.json();
 		},
 		newJob : function(req, res) {
 			var job = new Job();
@@ -53,6 +54,7 @@ var router = function(app) {
 		},
 		deleteJob : function(req, res) {
 			console.log(req.param);
+			res.json();
 		},
 		stopJob : function(req, res) {
 
@@ -69,6 +71,12 @@ var router = function(app) {
 		runCmd : function(req, res) {
 
 		},
+		sendCodeFile : function(req, res){
+			var codeHandler = require("../service/generateCode").generating;
+			codeHandler(req.body, function(){
+				res.send("OK");
+			});			
+		},
 		viewHistory : function(req, res) {
 
 		}
@@ -79,6 +87,7 @@ module.exports = function(app) {
 	var r = router(app)
 	app.get("/", r.index);
 	app.get("/api/jobs",r.getJobs);
+	app.get("/api/jobs/:page",r.getJobs);
 	app.get("/api/log", r.log);
 	app.post("/api/job", r.saveJob);
 	app.put("/api/job", r.newJob);
@@ -88,6 +97,7 @@ module.exports = function(app) {
 	app.post("/api/files", r.upload);
 	app.post("/api/deploy", r.deploy);
 	app.post("/api/runCmd", r.runCmd);
+	app.post("/api/code", r.sendCodeFile);
 	app.get("/api/viewHistory", r.viewHistory)
 	app.get("/*", r.index);
 }

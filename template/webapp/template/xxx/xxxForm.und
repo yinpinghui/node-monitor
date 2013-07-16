@@ -1,0 +1,42 @@
+<div class="social-box">
+	<div class="header">
+		<% if(type == "add"){ %>
+		<h4>添加{{xxx}}</h4>
+		<% }else if(type == "edit"){ %>
+		<h4>编辑{{xxx}}</h4>
+		<% }else if(type == "show"){ %>
+		<h4>查看{{xxx}}</h4>
+		<% } %>
+	</div>
+	<div class="body">
+		<% if(type == "show"){ %>
+		<table class="table table-bordered table-condensed">
+			<tbody>
+				{{#fields}}
+				<tr>
+					<td width="40%">{{fieldZh}}</td>
+					<td width="60%"><%= model.{{fieldName}} %></td>
+				</tr>
+				{{/fields}}
+			</tbody>
+		</table>
+		<% }else{ %>
+		<form action="#" class="form-horizontal {{xxx}}-form">
+			<div class="control-group">
+				<label class="control-label">{{fieldZh}}</label>
+				<div class="controls">
+					<input type="text" name="name" class="grd-white" value="<%= model.{{fieldName}} %>" required/>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="button" class="btn btn-primary saveItem">
+					确定
+				</button>
+				<a class="btn btn-danger" href="/{{xxx}}">
+					取消
+				</a>
+			</div>
+		</form>
+		<% } %>
+	</div>
+</div>
