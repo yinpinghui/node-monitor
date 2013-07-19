@@ -20,7 +20,7 @@
 						<% _.each({{xxx}}s, function({{xxx}}){%>
 						<tr>
 							{{#fields}}
-							<td><%= {{xxx}}.{{fieldName}} %></td>
+							<td><%= {{../xxx}}.{{fieldName}} %></td>
 							{{/fields}}
 							<td  data-{{xxx}}Id=<%= {{xxx}}.id %> >
 								<a href="/{{xxx}}/<%= {{xxx}}.id %>" class="btn btn-small">查看</a>
