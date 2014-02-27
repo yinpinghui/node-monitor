@@ -89,7 +89,7 @@ define(['router/app-router', 'underscore', 'jquery','bootstrap','view/menu-navba
     	  $.pnotify(_.extend(defaultInfo, opts));
     	  
       };
-      require([window.jsRoot + 'lib/jquery/datatables/media/js/DT_bootstrap.js'])
+      require([window.jsRoot + 'lib/jquery/datatables/DT_bootstrap.js'])
       window.approuter=new AppRouter();
       Backbone.history.start({pushState: true, root:'/'});
       

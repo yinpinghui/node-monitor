@@ -1,5 +1,5 @@
-define([ 'backbone','view/jobList-view','backbone-queryparams'], function(
-		Backbone,jobListView) {
+define([ 'backbone', 'view/jobList-view', 'view/jobForm-view', 'view/codeGenerator-View', 'backbone-queryparams'], function(
+		Backbone, jobListView, jobFormView, codeGeneratorView) {
 	var options = {
 		routes : {
 			'' : 'homePage',
@@ -7,15 +7,29 @@ define([ 'backbone','view/jobList-view','backbone-queryparams'], function(
 			'books.html' : 'booklist',
 			'mailBox.html': 'mailbox',
 			'notice.html':'notice',
-			"jobList.html" : "jobList",
+			"jobs" : "jobList",
+			"jobs/page:page" : "jobList",
+			"job/new" : "jobForm",
+			"job/:id" : "jobShow",
+			"job/:id/edit" : "jobForm",
+			"generateCode.html" : "generateCode",
 			'#search/:query/p:page':'search',
 			"participants":"listParticipants",
 			":entity?*args": "query",
       		"*anything": "anything"
       		
 		},
-		jobList : function(){
-			new jobListView({root:"#bodyContainer"});
+		jobList : function(page){
+			new jobListView({root:"#bodyContainer", page:page});
+		},
+		jobShow : function(id){
+			new jobFormView({root:"#bodyContainer", id:id, type:"show"});
+		},
+		jobForm : function(id){
+			new jobFormView({root:"#bodyContainer", id:id});
+		},
+		generateCode : function(){
+			new codeGeneratorView({root:"#bodyContainer"});
 		},
 		query: function(entity, args) {
 	      this.entity = entity;
